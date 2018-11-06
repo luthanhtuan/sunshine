@@ -14,8 +14,28 @@ class CreateChudeSanphamTable extends Migration
     public function up()
     {
         Schema::create('chude_sanpham', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            
+            $table->engine = 'InnoDB'; // Ho tro Relationship
+
+            $table->unsignedBigInteger('sp_ma')
+                ->comment('Ma san pham');
+
+            $table->unsignedTinyInteger('cd_ma')
+                ->comment('Ma chu de');
+            
+            $table->primary(['sp_ma','cd_ma']);
+
+            $table->foreign('sp_ma')
+                ->references('sp_ma')
+                ->on('sanpham')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
+            $table->foreign('cd_ma')
+                ->references('cd_ma')
+                ->on('chude')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

@@ -14,8 +14,45 @@ class CreateKhuyenmaiSanphamTable extends Migration
     public function up()
     {
         Schema::create('khuyenmai_sanpham', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+
+            $table->engine = 'InnoDB'; // Ho tro Relationship
+
+            $table->unsignedBigInteger('km_ma')
+                ->comment('Ma khuyen mai');
+
+            $table->unsignedBigInteger('sp_ma')
+                ->comment('Ma san pham');
+
+            $table->unsignedTinyInteger('m_ma')
+                ->comment('Ma mau');
+
+            $table->string('kmsp_giaTri', 50)
+                ->default('100;0')
+                ->comment('Gia tri san pham khuyen mai');
+
+            $table->unsignedTinyInteger('kmsp_trangThai')
+                ->default(2)
+                ->comment('Trang thai: 1-Khoa, 2-Kha dung');
+
+            $table->primary(['km_ma','sp_ma','m_ma']);
+
+            $table->foreign('km_ma')
+                ->references('km_ma')
+                ->on('khuyenmai')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('sp_ma')
+                ->references('sp_ma')
+                ->on('sanpham')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('m_ma')
+                ->references('m_ma')
+                ->on('mau')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

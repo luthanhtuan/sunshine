@@ -14,8 +14,28 @@ class CreateXuatxuTable extends Migration
     public function up()
     {
         Schema::create('xuatxu', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+
+            $table->engine = 'InnoDB'; // Ho tro Relationship
+
+            $table->unsignedSmallInteger('xx_ma')
+                ->autoIncrement()
+                ->comment('Ma xuat xu');
+
+            $table->string('xx_ten', 100)
+                ->unique()
+                ->comment('Ten xuat xu 100 ky tu');
+
+            $table->timestamp('xx_taoMoi')
+                ->default(DB::raw('CURRENT_TIMESTAMP'))
+                ->comment('Thoi diem tao moi');
+
+            $table->timestamp('xx_capNhat')
+                ->default(DB::raw('CURRENT_TIMESTAMP'))
+                ->comment('Thoi diem cap nhat');
+
+            $table->unsignedTinyInteger('xx_trangThai')
+                ->default(2)
+                ->comment('Trang thai: 1-Khoa, 2-Kha dung');
         });
     }
 
