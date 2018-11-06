@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-use App\Loai;
+/*use App\Loai;
 Route::get('/danhsachloai', function() {
     // Eloquent Model de lay du lieu
     // $ds_loai = Loai::all(); // SELECT * FROM loai
@@ -22,3 +22,6 @@ Route::get('/danhsachloai', function() {
     $json = json_encode($ds_loai);
     return $json;
 });
+*/
+Route::get('/danhsachloai', 'LoaiController@index')->name('danhsachloai.index');
+Route::get('/danhsachchude', 'ChudeController@index')->name('danhsachchude.index');

@@ -79,9 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Lu Thanh Tuan
+                    Shop hoa tuoi
                 </div>
-
+                <a href="{{ route('danhsachloai.index')}}">Danh sach loai hoa</a>
+                <a href="{{ route('danhsachchude.index')}}">Danh sach chu de</a>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
