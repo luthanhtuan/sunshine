@@ -22,4 +22,8 @@ class ThanhToan extends Model
     {
         return $this->hasMany('App\DonHang', 'tt_ma', 'tt_ma');
     }
+    public function hoadonsis()
+    {
+        return $this->hasMany('App\HoaDonSi', 'tt_ma', 'tt_ma');
+    }
 }

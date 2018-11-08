@@ -1,3 +1,11 @@
+
+@extends('backend.layouts.index')
+
+@section('title')
+Danh sach chu de
+@endsection
+
+@section('main-content')
 <h2>Danh sach chu de</h2>
 <table border="1">
     <thead>
@@ -15,3 +23,4 @@
         @endforeach
     </tbody>
 </table>
+@endsection

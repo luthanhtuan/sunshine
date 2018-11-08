@@ -22,4 +22,8 @@ class NhaCungCap extends Model
     {
         return $this->belongsTo('App\XuatXu', 'xx_ma', 'xx_ma');   
     }
+    public function phieunhaps()
+    {
+        return $this->hasMany('App\PhieuNhap', 'ncc_ma', 'ncc_ma');
+    }
 }

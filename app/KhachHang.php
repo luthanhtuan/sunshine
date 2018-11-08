@@ -22,4 +22,8 @@ class KhachHang extends Model
     {
         return $this->hasMany('App\DonHang', 'kh_ma', 'kh_ma');
     }
+    public function gopys()
+    {
+        return $this->hasMany('App\GopY', 'kh_ma', 'kh_ma');
+    }
 }

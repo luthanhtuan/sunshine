@@ -17,4 +17,9 @@ class ChuDe extends Model
 
     protected $dates        =  ['cd_taoMoi', 'cd_capNhat']; //Carbon\Carbon
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function chude_sanphams()
+    {
+        return $this->hasMany('App\ChuDe_SanPham', 'cd_ma', 'cd_ma');
+    }
 }

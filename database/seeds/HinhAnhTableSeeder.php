@@ -20,10 +20,11 @@ class HinhAnhTableSeeder extends Seeder
         sort($times);
         $list = [];
         foreach ($times as $key => $value) {
+            $num = $faker->unique()->numberBetween(1, 100);
             array_push($list, [
-                'sp_ma'            => $faker->unique()->numberBetween(1, 100),
+                'sp_ma'            => $num,
                 //'ha_stt'           => $faker->unique()->numberBetween(1, 100),
-                'ha_stt'           => $faker->numberBetween(1, 100),
+                'ha_stt'           => $num,
                 'ha_ten'           => $faker->text(50)
             ]);
         }

@@ -17,4 +17,21 @@ class Mau extends Model
 
     protected $dates        =  ['m_taoMoi', 'm_capNhat']; //Carbon\Carbon
     protected $dateFormat   = 'Y-m-d H:i:s';
+
+    public function mau_sanphams()
+    {
+        return $this->hasMany('App\Mau_SanPham', 'm_ma', 'm_ma');
+    }
+    public function chitietdonhangs()
+    {
+        return $this->hasMany('App\ChiTietDonHang', 'm_ma', 'm_ma');
+    }
+    public function khuyenmai_sanphams()
+    {
+        return $this->hasMany('App\KhuyenMai_SanPham', 'm_ma', 'm_ma');
+    }
+    public function chitietnhaps()
+    {
+        return $this->hasMany('App\ChiTietNhap', 'm_ma', 'm_ma');
+    }
 }

@@ -38,4 +38,16 @@ class DonHang extends Model
     {
         return $this->belongsTo('App\ThanhToan', 'tt_ma', 'tt_ma');   
     }
+    public function chitietdonhangs()
+    {
+        return $this->hasMany('App\ChiTietDonHang', 'dh_ma', 'dh_ma');
+    }
+    public function hoadonsis()
+    {
+        return $this->hasMany('App\HoaDonSi', 'dh_ma', 'dh_ma');
+    }
+    public function hoadonles()
+    {
+        return $this->hasMany('App\HoaDonLe', 'dh_ma', 'dh_ma');
+    }
 }

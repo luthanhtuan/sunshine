@@ -26,4 +26,28 @@ class SanPham extends Model
     {
         return $this->hasMany('App\HinhAnh', 'sp_ma', 'sp_ma');
     }
+    public function mau_sanphams()
+    {
+        return $this->hasMany('App\Mau_SanPham', 'sp_ma', 'sp_ma');
+    }
+    public function gopys()
+    {
+        return $this->hasMany('App\GopY', 'sp_ma', 'sp_ma');
+    }
+    public function chude_sanphams()
+    {
+        return $this->hasMany('App\ChuDe_SanPham', 'sp_ma', 'sp_ma');
+    }
+    public function chitietdonhangs()
+    {
+        return $this->hasMany('App\ChiTietDonHang', 'sp_ma', 'sp_ma');
+    }
+    public function khuyenmai_sanphams()
+    {
+        return $this->hasMany('App\KhuyenMai_SanPham', 'sp_ma', 'sp_ma');
+    }
+    public function chitietnhaps()
+    {
+        return $this->hasMany('App\ChiTietNhap', 'sp_ma', 'sp_ma');
+    }
 }
