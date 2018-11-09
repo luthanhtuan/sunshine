@@ -10,7 +10,7 @@ Danh sach san pham
         <tr> 
             <td>Ma</td>
             <td>Ten</td>
-            <td>Gia Goc</td>
+            <td>Loai</td>
         </tr>
     </thead>
     <tbody>
