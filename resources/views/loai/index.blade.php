@@ -5,6 +5,8 @@ Danh sach loai
 @endsection
 
 @section('main-content')
+<a href="{{ route('danhsachloai.create')}}">Them loai moi</a>
+<h2>Danh sach loai</h2>
 <table border="1">
     <thead>
         <tr> 
