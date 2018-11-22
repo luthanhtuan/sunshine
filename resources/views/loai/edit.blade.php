@@ -7,7 +7,15 @@ Hieu chinh loai san pham
 @section('main-content')
 
 <h2>Hieu chinh loai san pham</h2>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form id="frmThemMoiLoaiSanPham" method="post" action="{{ route('danhsachloai.update', ['id' => $loai->l_ma])}}">
     <input type="hidden" name="_method" value="PUT" />
     {{ csrf_field() }}

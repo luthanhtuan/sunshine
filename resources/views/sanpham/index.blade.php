@@ -6,18 +6,22 @@ Danh sach san pham
 
 @section('main-content')
 <h2>Danh sách sản phẩm</h2>
+<div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+        @if(Session::has('alert-'.$msg))
+        <p class="alert alert-{{$msg}}">{{Session::get('alert-'.$msg)}} <a href="#" class="close" data-dismiss="alert" aria-lable="close">&times;</a></p>
+        @endif
+    @endforeach
+</div>
 <table border="1">
     <thead>
         <tr> 
-            <td>Mã sản phẩm</td>
-            <td>Tên sản phẩm</td>
-            <td>Giá gốc</td>
-            <td>Giá bán</td>
-            <td>Hình</td>
-            <td>Thông tin</td>
-            <td>Đánh giá</td>
-            <td>Trạng thái</td>
-            <td>Loại sản phẩm</td>
+            <td>Mã</td>
+            <td>Tên</td>
+            <td>Hình ảnh</td>
+            <td>Thuộc loại</td>
+            <td>Sửa</td>
+            <td>Xóa</td>
         </tr>
     </thead>
     <tbody>
@@ -25,13 +29,10 @@ Danh sach san pham
             <tr>
                 <td>{{ $sanpham->sp_ma }}</td>
                 <td>{{ $sanpham->sp_ten }}</td>
-                <td>{{ $sanpham->sp_giaGoc }}</td>
-                <td>{{ $sanpham->sp_giaBan }}</td>
-                <td>{{ $sanpham->sp_hinh }}</td>
-                <td>{{ $sanpham->sp_thongTin }}</td>
-                <td>{{ $sanpham->sp_danhGia }}</td>
-                <td>{{ $sanpham->sp_trangThai }}</td>
+                <td><img src="{{ asset('storage/photos/' .$sanpham->sp_hinh) }}" class="img-list" /></td>
                 <td>{{ $sanpham->loai->l_ten }}</td>
+                <td><a href="{{ route('danhsachsanpham.edit', ['id' => $sanpham->sp_ma])}}">Sửa</a></td>
+                <td></td>
             </tr>
         @endforeach
     </tbody>

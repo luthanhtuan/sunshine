@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoaiRequest;
 use App\Loai;
 use DB;
 use Session;
+use Validator;
+
 class LoaiController extends Controller
 {
     public function index()
@@ -32,8 +35,9 @@ class LoaiController extends Controller
         $loai = Loai::where("l_ma", $id)->first();
         return view('loai.edit')->with('loai', $loai);
     }
-    public function update(Request $request, $id)
+    public function update(LoaiRequest $request, $id)
     {
+        
         $loai = Loai::where("l_ma", $id)->first();
         $loai->l_ten        = $request->l_ten;
         $loai->l_taoMoi     = $request->l_taoMoi;

@@ -30,4 +30,7 @@ Route::get('danhsachloai/{id}', 'LoaiController@edit')->name('danhsachloai.edit'
 Route::put('danhsachloai/{id}', 'LoaiController@update')->name('danhsachloai.update');
 Route::delete('danhsachloai/{id}', 'LoaiController@destroy')->name('danhsachloai.destroy');
 Route::get('/danhsachchude', 'ChuDeController@index')->name('danhsachchude.index');
-Route::get('/danhsachsanpham', 'SanPhamController@index')->name('danhsachsanpham.index');
+
+// route San pham
+//Route::get('/danhsachsanpham', 'SanPhamController@index')->name('danhsachsanpham.index');
+Route::resource('/danhsachsanpham', 'SanPhamController');

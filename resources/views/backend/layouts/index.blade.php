@@ -33,6 +33,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Các custom style của backend -->
+  <link rel="stylesheet" href="{{ asset('css/custom-styles.css')}}">
+  <!-- Các custom style dành riêng cho từng view -->
+  @yield('custom-css')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -406,5 +410,7 @@ desired effect
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+     <!-- Các custom scripts dành riêng cho từng view -->
+     @yield('custom-scripts')
 </body>
 </html>
