@@ -22,7 +22,7 @@ class SanPham extends Model
     {
         return $this->belongsTo('App\Loai', 'l_ma', 'l_ma');   
     }
-    public function hinhanhs()
+    public function hinhanhlienquan()
     {
         return $this->hasMany('App\HinhAnh', 'sp_ma', 'sp_ma');
     }

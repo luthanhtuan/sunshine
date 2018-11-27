@@ -6,6 +6,7 @@ Danh sach san pham
 
 @section('main-content')
 <h2>Danh sách sản phẩm</h2>
+<a href="{{ route('danhsachsanpham.create')}}" class="btn btn-success">Thêm</a>
 <div class="flash-message">
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
         @if(Session::has('alert-'.$msg))
@@ -13,7 +14,7 @@ Danh sach san pham
         @endif
     @endforeach
 </div>
-<table border="1">
+<table class="table">
     <thead>
         <tr> 
             <td>Mã</td>
@@ -31,8 +32,14 @@ Danh sach san pham
                 <td>{{ $sanpham->sp_ten }}</td>
                 <td><img src="{{ asset('storage/photos/' .$sanpham->sp_hinh) }}" class="img-list" /></td>
                 <td>{{ $sanpham->loai->l_ten }}</td>
-                <td><a href="{{ route('danhsachsanpham.edit', ['id' => $sanpham->sp_ma])}}">Sửa</a></td>
-                <td></td>
+                <td><a href="{{ route('danhsachsanpham.edit', ['id' => $sanpham->sp_ma])}}" class="btn btn-primary pull-left">Sửa</a></td>
+                <td>
+                    <form method="post" action="{{ route('danhsachsanpham.destroy', ['id' => $sanpham->sp_ma]) }}" class="pull-left">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger">Xoa</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>
